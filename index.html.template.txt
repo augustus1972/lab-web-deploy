@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head><title>Lab Web</title></head>
+<body>
+  <h1>🚀 Deployed by Jenkins CI/CD</h1>
+  <p>Serwer: <span id="host">{{HOSTNAME}}</span></p>
+  <p>AZ: {{AZ}}</p>
+  <p>Build #{{BUILD_NUMBER}} | Commit: {{COMMIT}}</p>
+  <p>Deployed: {{TIMESTAMP}}</p>
+</body>
+</html>
