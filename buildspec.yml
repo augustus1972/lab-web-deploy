@@ -1,0 +1,30 @@
+# buildspec.yml
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+    commands:
+      - echo "Installing dependencies..."
+      - pip install -r requirements.txt
+
+  build:
+    commands:
+      - echo "Building application..."
+      - echo "Build completed at $(date)"
+
+  post_build:
+    commands:
+      - echo "Preparing deployment package..."
+      # Zipp aplikacji (bez venv)
+      - zip -r app-deploy.zip . -x "venv/*" ".git/*" "*.pyc" "__pycache__/*"
+
+artifacts:
+  files:
+    - app-deploy.zip
+  name: FlaskAppArtifact
+
+cache:
+  paths:
+    - '/root/.cache/pip/**/*'
